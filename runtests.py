@@ -21,6 +21,11 @@ DEFAULT_SETTINGS = DefaultTestSettings(
     ETC_DIR=os.path.join(base_dir, app_name, "tests", "etc"),
     EDC_AUTH_CODENAMES_WARN_ONLY=True,
     EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
+    SUBJECT_SCREENING_MODEL="visit_schedule_app.subjectscreening",
+    SUBJECT_CONSENT_MODEL="visit_schedule_app.subjectconsent",
+    SUBJECT_VISIT_MODEL="visit_schedule_app.subjectvisit",
+    SUBJECT_VISIT_MISSED_MODEL="visit_schedule_app.subjectvisitmissed",
+    SUBJECT_REQUISITION_MODEL="visit_schedule_app.subjectrequisition",
     EXTRA_INSTALLED_APPS=["visit_schedule_app.apps.AppConfig"],
     # INSTALLED_APPS=[
     #     "django.contrib.admin",
