@@ -2,7 +2,6 @@
 import logging
 from pathlib import Path
 
-from edc_constants.constants import IGNORE
 from edc_test_utils import DefaultTestSettings, func_main
 
 app_name = "edc_unblinding"
@@ -15,13 +14,53 @@ project_settings = DefaultTestSettings(
     APP_NAME=app_name,
     ETC_DIR=str(base_dir / app_name / "tests" / "etc"),
     EDC_AUTH_CODENAMES_WARN_ONLY=True,
-    EDC_NAVBAR_VERIFY_ON_LOAD=IGNORE,
+    SILENCED_SYSTEM_CHECKS=[
+        "sites.E101",
+        "edc_navbar.E002",
+        "edc_navbar.E003",
+        "edc_consent.E001",
+    ],
     SUBJECT_SCREENING_MODEL="visit_schedule_app.subjectscreening",
     SUBJECT_CONSENT_MODEL="visit_schedule_app.subjectconsent",
     SUBJECT_VISIT_MODEL="edc_visit_tracking.subjectvisit",
     SUBJECT_VISIT_MISSED_MODEL="visit_schedule_app.subjectvisitmissed",
     SUBJECT_REQUISITION_MODEL="visit_schedule_app.subjectrequisition",
-    EXTRA_INSTALLED_APPS=["visit_schedule_app.apps.AppConfig"],
+    INSTALLED_APPS=[
+        "django.contrib.admin",
+        "django.contrib.auth",
+        "django.contrib.contenttypes",
+        "django.contrib.sessions",
+        "django.contrib.messages",
+        "django.contrib.staticfiles",
+        "django.contrib.sites",
+        "django_crypto_fields.apps.AppConfig",
+        "multisite",
+        "edc_action_item.apps.AppConfig",
+        "edc_appointment.apps.AppConfig",
+        "edc_auth.apps.AppConfig",
+        "edc_crf.apps.AppConfig",
+        "edc_data_manager.apps.AppConfig",
+        "edc_device.apps.AppConfig",
+        "edc_facility.apps.AppConfig",
+        "edc_form_runners.apps.AppConfig",
+        "edc_identifier.apps.AppConfig",
+        "edc_lab.apps.AppConfig",
+        "edc_label.apps.AppConfig",
+        "edc_locator.apps.AppConfig",
+        "edc_metadata.apps.AppConfig",
+        "edc_notification.apps.AppConfig",
+        "edc_offstudy.apps.AppConfig",
+        "edc_registration.apps.AppConfig",
+        "edc_sites.apps.AppConfig",
+        "edc_timepoint.apps.AppConfig",
+        "edc_visit_schedule.apps.AppConfig",
+        "edc_visit_tracking.apps.AppConfig",
+        "edc_prn.apps.AppConfig",
+        "edc_pdf_reports.apps.AppConfig",
+        "edc_unblinding.apps.AppConfig",
+        "visit_schedule_app.apps.AppConfig",
+        "edc_appconfig.apps.AppConfig",
+    ],
     DASHBOARD_BASE_TEMPLATES={
         "dashboard_template": str(
             base_dir / "edc_unblinding" / "tests" / "templates" / "dashboard.html"
