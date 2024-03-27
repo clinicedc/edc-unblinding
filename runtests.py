@@ -19,6 +19,7 @@ project_settings = DefaultTestSettings(
         "edc_navbar.E002",
         "edc_navbar.E003",
         "edc_consent.E001",
+        "edc_sites.E001",
     ],
     SUBJECT_SCREENING_MODEL="visit_schedule_app.subjectscreening",
     SUBJECT_CONSENT_MODEL="visit_schedule_app.subjectconsent",
@@ -59,6 +60,7 @@ project_settings = DefaultTestSettings(
         "edc_pdf_reports.apps.AppConfig",
         "edc_unblinding.apps.AppConfig",
         "visit_schedule_app.apps.AppConfig",
+        "visit_tracking_app.apps.AppConfig",
         "edc_appconfig.apps.AppConfig",
     ],
     DASHBOARD_BASE_TEMPLATES={
