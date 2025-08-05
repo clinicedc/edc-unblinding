@@ -5,14 +5,15 @@ from pathlib import Path
 from edc_test_settings.default_test_settings import DefaultTestSettings
 
 app_name = "edc_unblinding"
-base_dir = Path(__file__).absolute().parent.parent.parent
+base_dir = Path(__file__).absolute().parent.parent
 
 project_settings = DefaultTestSettings(
     calling_file=__file__,
-    template_dirs=[base_dir / app_name / "tests" / "templates"],
+    # template_dirs=[base_dir / app_name / "tests" / "templates"],
     BASE_DIR=base_dir,
     APP_NAME=app_name,
-    ETC_DIR=base_dir / app_name / "tests" / "etc",
+    ETC_DIR=base_dir / "tests" / "etc",
+    DJANGO_REVISION_IGNORE_WORKING_DIR=True,
     EDC_AUTH_CODENAMES_WARN_ONLY=True,
     SILENCED_SYSTEM_CHECKS=[
         "sites.E101",
@@ -21,11 +22,11 @@ project_settings = DefaultTestSettings(
         "edc_consent.E001",
         "edc_sites.E001",
     ],
-    SUBJECT_SCREENING_MODEL="visit_schedule_app.subjectscreening",
-    SUBJECT_CONSENT_MODEL="visit_schedule_app.subjectconsent",
+    SUBJECT_SCREENING_MODEL="edc_visit_schedule_app.subjectscreening",
+    SUBJECT_CONSENT_MODEL="edc_visit_schedule_app.subjectconsent",
     SUBJECT_VISIT_MODEL="edc_visit_tracking.subjectvisit",
-    SUBJECT_VISIT_MISSED_MODEL="visit_schedule_app.subjectvisitmissed",
-    SUBJECT_REQUISITION_MODEL="visit_schedule_app.subjectrequisition",
+    SUBJECT_VISIT_MISSED_MODEL="edc_visit_schedule_app.subjectvisitmissed",
+    SUBJECT_REQUISITION_MODEL="edc_visit_schedule_app.subjectrequisition",
     INSTALLED_APPS=[
         "django.contrib.admin",
         "django.contrib.auth",
@@ -59,18 +60,18 @@ project_settings = DefaultTestSettings(
         "edc_prn.apps.AppConfig",
         "edc_pdf_reports.apps.AppConfig",
         "edc_unblinding.apps.AppConfig",
-        "visit_schedule_app.apps.AppConfig",
+        "edc_visit_schedule_app.apps.AppConfig",
         "visit_tracking_app.apps.AppConfig",
         "edc_appconfig.apps.AppConfig",
     ],
-    DASHBOARD_BASE_TEMPLATES={
-        "dashboard_template": (
-            base_dir / "edc_unblinding" / "tests" / "templates" / "dashboard.html"
-        ),
-        "dashboard2_template": (
-            base_dir / "edc_unblinding" / "tests" / "templates" / "dashboard2.html"
-        ),
-    },
+    # DASHBOARD_BASE_TEMPLATES={
+    #     "dashboard_template": (
+    #         base_dir / "edc_unblinding" / "tests" / "templates" / "dashboard.html"
+    #     ),
+    #     "dashboard2_template": (
+    #         base_dir / "edc_unblinding" / "tests" / "templates" / "dashboard2.html"
+    #     ),
+    # },
     use_test_urls=True,
     add_dashboard_middleware=True,
     add_lab_dashboard_middleware=True,

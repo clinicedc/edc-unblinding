@@ -6,9 +6,9 @@ from edc_auth.site_auths import site_auths
 from edc_consent.site_consents import site_consents
 from edc_facility import import_holidays
 from edc_visit_schedule.site_visit_schedules import site_visit_schedules
+from edc_visit_schedule_app.consents import consent_v1
+from edc_visit_schedule_app.visit_schedule import visit_schedule
 from edc_visit_tracking.tests.helper import Helper
-from visit_schedule_app.consents import consent_v1
-from visit_schedule_app.visit_schedule import visit_schedule
 
 from edc_unblinding.action_items import UnblindingRequestAction, UnblindingReviewAction
 from edc_unblinding.auth_objects import (
@@ -19,8 +19,8 @@ from edc_unblinding.models import UnblindingRequest, UnblindingRequestorUser
 
 
 @override_settings(
-    SUBJECT_CONSENT_MODEL="visit_schedule_app.subjectconsent",
-    SUBJECT_SCREENING_MODEL="visit_schedule_app.subjectscreening",
+    SUBJECT_CONSENT_MODEL="edc_visit_schedule_app.subjectconsent",
+    SUBJECT_SCREENING_MODEL="edc_visit_schedule_app.subjectscreening",
     SITE_ID=10,
 )
 class UnblindingTestCase(TestCase):
