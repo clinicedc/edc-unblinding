@@ -1,3 +1,4 @@
+docs/_build
 _version.py
 django_crypto_fields
 .env

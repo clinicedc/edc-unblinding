@@ -157,4 +157,6 @@ test = [
     "django-db-views>=0.1.11",
     "edc-test-utils>=1.0.0",
     "edc-lab-dashboard>=1.0.2",
+    "edc-visit-schedule-app>=0.1.2",
+    "edc-visit-tracking-app>=0.1.1",
 ]

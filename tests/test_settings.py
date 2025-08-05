@@ -61,7 +61,7 @@ project_settings = DefaultTestSettings(
         "edc_pdf_reports.apps.AppConfig",
         "edc_unblinding.apps.AppConfig",
         "edc_visit_schedule_app.apps.AppConfig",
-        "visit_tracking_app.apps.AppConfig",
+        "edc_visit_tracking_app.apps.AppConfig",
         "edc_appconfig.apps.AppConfig",
     ],
     # DASHBOARD_BASE_TEMPLATES={
